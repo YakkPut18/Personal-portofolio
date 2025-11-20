@@ -1,24 +1,34 @@
 import { FolderKanban, Image, Palette } from "lucide-react";
 
 const PortfolioSection = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const portfolioCategories = [
     {
       icon: FolderKanban,
       title: "Projects",
       description: "Explore my technical projects and web applications",
       gradient: "from-primary to-primary/50",
+      action: () => {},
     },
     {
       icon: Image,
       title: "Infographics",
       description: "Data visualizations and information design",
       gradient: "from-secondary to-secondary/50",
+      action: () => scrollToSection('infographics'),
     },
     {
       icon: Palette,
       title: "My Designs",
       description: "Creative design work and visual experiments",
       gradient: "from-accent to-accent/50",
+      action: () => {},
     },
   ];
 
@@ -44,6 +54,7 @@ const PortfolioSection = () => {
               key={index}
               className="group relative cursor-pointer"
               style={{ animationDelay: `${index * 0.2}s` }}
+              onClick={category.action}
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} rounded-2xl blur-xl 
                             opacity-0 group-hover:opacity-50 transition-all duration-500`}></div>
