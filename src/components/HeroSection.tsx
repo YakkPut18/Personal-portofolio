@@ -1,35 +1,58 @@
+import { Code2, Zap, Trophy } from "lucide-react";
+
 const HeroSection = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden grid-pattern">
-      {/* Animated background gradients */}
-      <div className="absolute inset-0 bg-gradient-radial opacity-50"></div>
-      <div className="absolute top-20 right-20 w-96 h-96 bg-neon-purple/20 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-neon-blue/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-muted/20"></div>
+      <div className="absolute inset-0 bg-gradient-radial opacity-30"></div>
       
       <div className="relative z-10 text-center px-6">
-        <h1 className="font-display text-6xl md:text-8xl font-black mb-6 text-glow-purple animate-fade-in">
-          Welcome to
+        {/* Top icons */}
+        <div className="flex items-center justify-center gap-6 mb-8 animate-fade-in">
+          <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
+            <Code2 className="w-6 h-6 text-primary" />
+          </div>
+          <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center border border-secondary/30">
+            <Zap className="w-6 h-6 text-secondary" />
+          </div>
+          <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center border border-accent/30">
+            <Trophy className="w-6 h-6 text-accent" />
+          </div>
+        </div>
+
+        {/* Main heading */}
+        <h1 className="font-sans text-5xl md:text-7xl font-bold mb-2 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <span className="text-foreground">Welcome To My</span>
           <br />
-          <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-            My Portfolio
+          <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
+            Portfolio Website
           </span>
         </h1>
-        <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.3s' }}>
-          Data Enthusiast • Visual Statistics Designer • Creative Developer
-        </p>
+
+        {/* Decorative element */}
+        <div className="flex items-center justify-center gap-2 mt-6 text-primary/60 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+          <span className="text-sm font-medium">Arya Maulana</span>
+          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+        </div>
         
         <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
           <button
             onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-8 py-4 bg-primary/20 border-2 border-primary rounded-lg font-semibold 
-                     hover:bg-primary/30 transition-all duration-300 glow-purple"
+            className="px-8 py-3 bg-primary/10 border border-primary/30 rounded-lg font-medium 
+                     hover:bg-primary/20 hover:border-primary/50 transition-all duration-300"
           >
             Explore My Work
           </button>
           <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-8 py-4 bg-secondary/20 border-2 border-secondary rounded-lg font-semibold 
-                     hover:bg-secondary/30 transition-all duration-300 glow-blue"
+            className="px-8 py-3 bg-secondary/10 border border-secondary/30 rounded-lg font-medium 
+                     hover:bg-secondary/20 hover:border-secondary/50 transition-all duration-300"
           >
             Get In Touch
           </button>
@@ -38,7 +61,7 @@ const HeroSection = () => {
       
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary rounded-full flex items-start justify-center p-2">
+        <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex items-start justify-center p-2">
           <div className="w-1 h-3 bg-primary rounded-full animate-pulse"></div>
         </div>
       </div>
