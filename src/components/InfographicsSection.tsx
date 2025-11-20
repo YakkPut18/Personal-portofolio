@@ -14,7 +14,7 @@ const InfographicsSection = () => {
       
       <div className="relative z-10 container mx-auto max-w-7xl">
         <div className="text-center mb-16">
-          <h2 className="font-display text-5xl md:text-6xl font-bold text-glow-purple mb-4">
+          <h2 className="text-5xl md:text-6xl font-bold text-glow-purple mb-4">
             Infographics
           </h2>
           <p className="text-lg text-muted-foreground">

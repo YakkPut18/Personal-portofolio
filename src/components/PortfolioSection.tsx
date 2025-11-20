@@ -40,7 +40,7 @@ const PortfolioSection = () => {
       
       <div className="relative z-10 container mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="font-display text-5xl md:text-6xl font-bold text-glow-purple mb-4">
+          <h2 className="text-5xl md:text-6xl font-bold text-glow-purple mb-4">
             Portfolio
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -65,7 +65,7 @@ const PortfolioSection = () => {
                   <category.icon className="w-8 h-8 text-primary" />
                 </div>
                 
-                <h3 className="font-display text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
                   {category.title}
                 </h3>
                 

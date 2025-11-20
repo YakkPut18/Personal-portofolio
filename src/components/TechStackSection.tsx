@@ -47,7 +47,7 @@ const TechStackSection = () => {
       
       <div className="relative z-10 container mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="font-display text-5xl md:text-6xl font-bold text-glow-blue mb-4">
+          <h2 className="text-5xl md:text-6xl font-bold text-glow-blue mb-4">
             Tech Stack
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -96,7 +96,7 @@ const TechStackSection = () => {
                        hover:border-primary/50 transition-all duration-300"
             >
               <category.icon className="w-8 h-8 text-primary mb-3" />
-              <h4 className="font-display font-semibold mb-1">{category.label}</h4>
+              <h4 className="font-semibold mb-1">{category.label}</h4>
               <p className="text-sm text-muted-foreground">{category.count}</p>
             </div>
           ))}

@@ -32,7 +32,7 @@ const AboutSection = () => {
       <div className="relative z-10 container mx-auto max-w-6xl">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="font-display text-5xl md:text-6xl font-bold text-glow-purple mb-4">
+          <h2 className="text-5xl md:text-6xl font-bold text-glow-purple mb-4">
             About Me
           </h2>
           <p className="text-lg text-muted-foreground flex items-center justify-center gap-2">
@@ -46,7 +46,7 @@ const AboutSection = () => {
           <div className="space-y-6">
             <div>
               <p className="text-lg text-muted-foreground mb-2">Hello, I'm</p>
-              <h3 className="font-display text-4xl md:text-5xl font-bold mb-4">
+              <h3 className="text-4xl md:text-5xl font-bold mb-4">
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                   Arya Maulana Putra
                 </span>
@@ -114,9 +114,9 @@ const AboutSection = () => {
                             hover:border-primary/50 transition-all duration-300">
                 <div className="flex items-start justify-between mb-4">
                   <stat.icon className="w-10 h-10 text-primary" />
-                  <span className="font-display text-4xl font-bold text-glow-purple">{stat.number}</span>
+                  <span className="text-4xl font-bold text-glow-purple">{stat.number}</span>
                 </div>
-                <h4 className="font-display text-sm font-semibold text-muted-foreground mb-2">
+                <h4 className="text-sm font-semibold text-muted-foreground mb-2">
                   {stat.label}
                 </h4>
                 <p className="text-xs text-muted-foreground/80">{stat.description}</p>
