@@ -37,6 +37,12 @@ const Navigation = () => {
               Portfolio
             </button>
             <button
+              onClick={() => scrollToSection('infographics')}
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
+              Infographics
+            </button>
+            <button
               onClick={() => scrollToSection('contact')}
               className="text-sm font-medium transition-colors hover:text-primary"
             >
