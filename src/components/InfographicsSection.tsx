@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { X } from "lucide-react";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import infographic1 from "@/assets/infographic-1.png";
 import infographic2 from "@/assets/infographic-2.png";
 import infographic3 from "@/assets/infographic-3.png";
@@ -8,6 +11,12 @@ import infographic7 from "@/assets/infographic-7.png";
 import infographic8 from "@/assets/infographic-8.png";
 
 const InfographicsSection = () => {
+  const [selectedInfographic, setSelectedInfographic] = useState<{
+    id: number;
+    title: string;
+    image: string;
+  } | null>(null);
+
   const infographics = [
     { id: 1, title: "Biaya menjadi KAYA di tempat yang SALAH", image: infographic1 },
     { id: 2, title: "Smart Electric Alarm: Penerapan Machine Learning dalam Upaya Efisiensi Listrik", image: infographic2 },
@@ -39,6 +48,7 @@ const InfographicsSection = () => {
               key={infographic.id}
               className="group relative aspect-[3/4] cursor-pointer"
               style={{ animationDelay: `${index * 0.1}s` }}
+              onClick={() => setSelectedInfographic(infographic)}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl blur-lg 
                             opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
@@ -64,6 +74,38 @@ const InfographicsSection = () => {
           ))}
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      <Dialog open={!!selectedInfographic} onOpenChange={() => setSelectedInfographic(null)}>
+        <DialogContent className="max-w-4xl w-[95vw] max-h-[95vh] p-0 bg-background/95 backdrop-blur-md border-border overflow-hidden">
+          <DialogTitle className="sr-only">
+            {selectedInfographic?.title}
+          </DialogTitle>
+          <button 
+            onClick={() => setSelectedInfographic(null)}
+            className="absolute top-4 right-4 z-50 p-2 rounded-full bg-background/80 hover:bg-background transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </button>
+          
+          {selectedInfographic && (
+            <div className="flex flex-col max-h-[95vh]">
+              <div className="flex-1 overflow-auto p-4">
+                <img 
+                  src={selectedInfographic.image} 
+                  alt={selectedInfographic.title}
+                  className="w-full h-auto object-contain rounded-lg"
+                />
+              </div>
+              <div className="p-4 border-t border-border bg-card/50">
+                <h3 className="text-lg md:text-xl font-semibold text-center">
+                  {selectedInfographic.title}
+                </h3>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
