@@ -76,7 +76,7 @@ const ContactSection = () => {
         <div className="text-center bg-card/30 backdrop-blur-sm border border-border rounded-2xl p-8">
           <p className="text-muted-foreground mb-4">Or send me an email at</p>
           <a
-            href="mailto:arya@example.com"
+            href="mailto:aryaputra1804@student.uns.ac.id"
             className="inline-flex items-center gap-2 text-2xl font-semibold text-primary hover:text-primary/80 
                      transition-colors group"
           >
@@ -84,7 +84,7 @@ const ContactSection = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            <span className="text-glow-purple">arya.maulana@example.com</span>
+            <span className="text-glow-purple">aryaputra1804@student.uns.ac.id</span>
           </a>
         </div>
       </div>
