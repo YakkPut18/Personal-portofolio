@@ -64,13 +64,17 @@ const AboutSection = () => {
             </p>
 
             <div className="flex gap-4 pt-4">
-              <button className="px-6 py-3 bg-primary/20 border border-primary rounded-lg font-semibold 
-                               hover:bg-primary/30 transition-all duration-300 glow-purple flex items-center gap-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/>
-                </svg>
-                Download CV
-              </button>
+            <a 
+              href="/CV_Arya_Maulana_Putra.pdf" 
+              download="CV_Arya_Maulana_Putra.pdf"
+              className="px-6 py-3 bg-primary/20 border border-primary rounded-lg font-semibold 
+                               hover:bg-primary/30 transition-all duration-300 glow-purple flex items-center gap-2"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/>
+              </svg>
+              Download CV
+            </a>
               <button 
                 onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
                 className="px-6 py-3 bg-secondary/20 border border-secondary rounded-lg font-semibold 
