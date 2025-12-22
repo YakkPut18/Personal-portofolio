@@ -14,7 +14,7 @@ const PortfolioSection = () => {
       title: "Projects",
       description: "Explore my technical projects and web applications",
       gradient: "from-primary to-primary/50",
-      action: () => {},
+      action: () => window.open("https://github.com/YakkPut18", "_blank"),
     },
     {
       icon: Image,
