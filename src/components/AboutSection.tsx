@@ -68,9 +68,9 @@ const AboutSection = () => {
 
             <div className="flex gap-4 pt-4">
             <a 
-              href="https://drive.google.com/file/d/1qI3jhgE1k76p-zqiIvR7WM4cjLF-FqBQ/view?usp=drive_link" 
+              href="/CV_Arya_Maulana_Putra.pdf" 
+              download
               target="_blank"
-              rel="noopener noreferrer"
               className="px-6 py-3 bg-primary/20 border border-primary rounded-lg font-semibold 
                                hover:bg-primary/30 transition-all duration-300 glow-purple flex items-center gap-2"
             >
