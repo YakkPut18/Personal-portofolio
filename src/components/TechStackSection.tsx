@@ -2,36 +2,44 @@ import { useState } from "react";
 import { Code2, Palette as PaletteIcon, X } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
-import canvaLogo from "@/assets/canva-logo.png";
-import figmaLogo from "@/assets/figma-logo.png";
-import illustratorLogo from "@/assets/illustrator-logo.png";
+import pythonLogo from "@/assets/python-logo.png";
+import rstudioLogo from "@/assets/rstudio-logo.png";
+import minitabLogo from "@/assets/minitab-logo.png";
+import jupyterLogo from "@/assets/jupyter-logo.png";
+import mysqlLogo from "@/assets/mysql-logo.png";
+import illustratorLogo from "@/assets/illustrator-logo-new.png";
+import canvaLogo from "@/assets/canva-logo-new.png";
+import figmaLogo from "@/assets/figma-logo-new.png";
+import photoshopLogo from "@/assets/photoshop-logo.png";
 
 const TechStackSection = () => {
   const [openDialog, setOpenDialog] = useState<"programming" | "design" | null>(null);
 
   const programmingTools = [
-    { name: "Python", icon: "🐍" },
-    { name: "R Studio", icon: "📊" },
-    { name: "MySQL", icon: "🗄️" },
+    { name: "Python", logo: pythonLogo },
+    { name: "R Studio", logo: rstudioLogo },
+    { name: "Minitab", logo: minitabLogo },
+    { name: "Jupyter", logo: jupyterLogo },
+    { name: "MySQL", logo: mysqlLogo },
   ];
 
   const designTools = [
+    { name: "Adobe Illustrator", logo: illustratorLogo },
     { name: "Canva", logo: canvaLogo },
     { name: "Figma", logo: figmaLogo },
-    { name: "Adobe Illustrator", logo: illustratorLogo },
+    { name: "Adobe Photoshop", logo: photoshopLogo },
   ];
 
   const categories = [
     { 
       icon: Code2, 
       label: "Programming", 
-      count: "3 Tools",
-      onClick: () => setOpenDialog("programming")
+      count: "5 Tools",
     },
     { 
       icon: PaletteIcon, 
       label: "Design", 
-      count: "3 Tools",
+      count: "4 Tools",
       onClick: () => setOpenDialog("design")
     },
   ];
@@ -79,7 +87,7 @@ const TechStackSection = () => {
           <div className="grid grid-cols-3 gap-6">
             {programmingTools.map((tool, index) => (
               <div key={index} className="flex flex-col items-center gap-3 p-4 rounded-xl bg-background/50 hover:bg-background/80 transition-colors">
-                <span className="text-5xl">{tool.icon}</span>
+                <img src={tool.logo} alt={tool.name} className="w-16 h-16 object-contain" />
                 <span className="font-semibold text-sm text-center">{tool.name}</span>
               </div>
             ))}
