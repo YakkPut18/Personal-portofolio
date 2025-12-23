@@ -28,7 +28,7 @@ const PortfolioSection = () => {
       title: "My Designs",
       description: "Creative design work and visual experiments",
       gradient: "from-accent to-accent/50",
-      action: () => {},
+      action: () => window.open("https://drive.google.com/drive/folders/1DzM0HxbnmGV5_6P-3GYbveKrbbx_N5zD?usp=sharing", "_blank"),
     },
   ];
 

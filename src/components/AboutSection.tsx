@@ -5,21 +5,24 @@ const AboutSection = () => {
   const stats = [
     {
       icon: Code,
-      number: "11",
+      number: "10",
       label: "TOTAL PROJECTS",
       description: "Innovative web solutions crafted",
+      link: "https://github.com/YakkPut18",
     },
     {
       icon: Award,
       number: "7",
       label: "CERTIFICATES",
       description: "Professional skills validated",
+      link: "https://drive.google.com/drive/folders/1LydvnZ8sGu1oVQu0NTat_buwHFd4Sik6?usp=sharing",
     },
     {
       icon: Globe,
       number: "3",
       label: "YEARS OF EXPERIENCE",
       description: "Continuous learning journey",
+      link: null,
     },
   ];
 
@@ -76,14 +79,16 @@ const AboutSection = () => {
               </svg>
               Download CV
             </a>
-              <button 
-                onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+              <a 
+                href="https://github.com/YakkPut18"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-3 bg-secondary/20 border border-secondary rounded-lg font-semibold 
                          hover:bg-secondary/30 transition-all duration-300 glow-blue flex items-center gap-2"
               >
                 <Code className="w-5 h-5" />
                 View Projects
-              </button>
+              </a>
             </div>
           </div>
 
@@ -107,27 +112,50 @@ const AboutSection = () => {
 
         {/* Stats cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="relative group"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl blur-xl 
-                            group-hover:blur-2xl transition-all duration-300"></div>
-              <div className="relative bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 
-                            hover:border-primary/50 transition-all duration-300">
-                <div className="flex items-start justify-between mb-4">
-                  <stat.icon className="w-10 h-10 text-primary" />
-                  <span className="text-4xl font-bold text-glow-purple">{stat.number}</span>
+          {stats.map((stat, index) => {
+            const CardContent = (
+              <>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl blur-xl 
+                              group-hover:blur-2xl transition-all duration-300"></div>
+                <div className="relative bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 
+                              hover:border-primary/50 transition-all duration-300">
+                  <div className="flex items-start justify-between mb-4">
+                    <stat.icon className="w-10 h-10 text-primary" />
+                    <span className="text-4xl font-bold text-glow-purple">{stat.number}</span>
+                  </div>
+                  <h4 className="text-sm font-semibold text-muted-foreground mb-2">
+                    {stat.label}
+                  </h4>
+                  <p className="text-xs text-muted-foreground/80">{stat.description}</p>
                 </div>
-                <h4 className="text-sm font-semibold text-muted-foreground mb-2">
-                  {stat.label}
-                </h4>
-                <p className="text-xs text-muted-foreground/80">{stat.description}</p>
+              </>
+            );
+
+            if (stat.link) {
+              return (
+                <a
+                  key={index}
+                  href={stat.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative group cursor-pointer"
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  {CardContent}
+                </a>
+              );
+            }
+
+            return (
+              <div
+                key={index}
+                className="relative group"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                {CardContent}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
