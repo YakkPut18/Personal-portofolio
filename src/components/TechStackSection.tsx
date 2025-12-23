@@ -1,41 +1,38 @@
-import { Code2, Database, FileCode, Palette as PaletteIcon } from "lucide-react";
+import { useState } from "react";
+import { Code2, Palette as PaletteIcon, X } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+
+import canvaLogo from "@/assets/canva-logo.png";
+import figmaLogo from "@/assets/figma-logo.png";
+import illustratorLogo from "@/assets/illustrator-logo.png";
 
 const TechStackSection = () => {
-  const techStack = [
-    {
-      name: "Python",
-      icon: "🐍",
-      category: "Programming",
+  const [openDialog, setOpenDialog] = useState<"programming" | "design" | null>(null);
+
+  const programmingTools = [
+    { name: "Python", icon: "🐍" },
+    { name: "R Studio", icon: "📊" },
+    { name: "MySQL", icon: "🗄️" },
+  ];
+
+  const designTools = [
+    { name: "Canva", logo: canvaLogo },
+    { name: "Figma", logo: figmaLogo },
+    { name: "Adobe Illustrator", logo: illustratorLogo },
+  ];
+
+  const categories = [
+    { 
+      icon: Code2, 
+      label: "Programming", 
+      count: "3 Tools",
+      onClick: () => setOpenDialog("programming")
     },
-    {
-      name: "JavaScript",
-      icon: "⚡",
-      category: "Programming",
-    },
-    {
-      name: "SQL",
-      icon: "🗄️",
-      category: "Database",
-    },
-    {
-      name: "R / RStudio",
-      icon: "📊",
-      category: "Analytics",
-    },
-    {
-      name: "Figma",
-      icon: "🎨",
-      category: "Design",
-    },
-    {
-      name: "Canva",
-      icon: "✨",
-      category: "Design",
-    },
-    {
-      name: "Adobe Illustrator",
-      icon: "🖌️",
-      category: "Design",
+    { 
+      icon: PaletteIcon, 
+      label: "Design", 
+      count: "3 Tools",
+      onClick: () => setOpenDialog("design")
     },
   ];
 
@@ -55,53 +52,57 @@ const TechStackSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
-          {techStack.map((tech, index) => (
+        {/* Tech categories */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+          {categories.map((category, index) => (
             <div
               key={index}
-              className="group relative"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              onClick={category.onClick}
+              className="bg-card/30 backdrop-blur-sm border border-border rounded-xl p-8 
+                       hover:border-primary/50 transition-all duration-300 cursor-pointer
+                       hover:-translate-y-2 group"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl blur-lg 
-                            opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-              
-              <div className="relative bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 
-                            hover:border-primary/50 transition-all duration-300 flex flex-col items-center justify-center
-                            aspect-square group-hover:-translate-y-2">
-                <div className="text-5xl mb-3 group-hover:scale-110 transition-transform duration-300">
-                  {tech.icon}
-                </div>
-                <h4 className="font-semibold text-center text-sm mb-1">
-                  {tech.name}
-                </h4>
-                <p className="text-xs text-muted-foreground text-center">
-                  {tech.category}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Additional tech categories */}
-        <div className="mt-16 grid md:grid-cols-4 gap-6">
-          {[
-            { icon: Code2, label: "Programming", count: "2 Languages" },
-            { icon: Database, label: "Database", count: "1 Language" },
-            { icon: FileCode, label: "Analytics", count: "1 Tool" },
-            { icon: PaletteIcon, label: "Design", count: "3 Tools" },
-          ].map((category, index) => (
-            <div
-              key={index}
-              className="bg-card/30 backdrop-blur-sm border border-border rounded-xl p-6 
-                       hover:border-primary/50 transition-all duration-300"
-            >
-              <category.icon className="w-8 h-8 text-primary mb-3" />
-              <h4 className="font-semibold mb-1">{category.label}</h4>
+              <category.icon className="w-12 h-12 text-primary mb-4 group-hover:scale-110 transition-transform" />
+              <h4 className="font-bold text-xl mb-2">{category.label}</h4>
               <p className="text-sm text-muted-foreground">{category.count}</p>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Programming Dialog */}
+      <Dialog open={openDialog === "programming"} onOpenChange={() => setOpenDialog(null)}>
+        <DialogContent className="bg-card/95 backdrop-blur-xl border-border max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-center mb-4">Programming Tools</DialogTitle>
+          </DialogHeader>
+          <div className="grid grid-cols-3 gap-6">
+            {programmingTools.map((tool, index) => (
+              <div key={index} className="flex flex-col items-center gap-3 p-4 rounded-xl bg-background/50 hover:bg-background/80 transition-colors">
+                <span className="text-5xl">{tool.icon}</span>
+                <span className="font-semibold text-sm text-center">{tool.name}</span>
+              </div>
+            ))}
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Design Dialog */}
+      <Dialog open={openDialog === "design"} onOpenChange={() => setOpenDialog(null)}>
+        <DialogContent className="bg-card/95 backdrop-blur-xl border-border max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-center mb-4">Design Tools</DialogTitle>
+          </DialogHeader>
+          <div className="grid grid-cols-3 gap-6">
+            {designTools.map((tool, index) => (
+              <div key={index} className="flex flex-col items-center gap-3 p-4 rounded-xl bg-background/50 hover:bg-background/80 transition-colors">
+                <img src={tool.logo} alt={tool.name} className="w-16 h-16 object-contain" />
+                <span className="font-semibold text-sm text-center">{tool.name}</span>
+              </div>
+            ))}
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
