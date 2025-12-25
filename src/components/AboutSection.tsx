@@ -34,11 +34,11 @@ const AboutSection = () => {
       
       <div className="relative z-10 container mx-auto max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold text-glow-purple mb-4">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-glow-purple mb-4">
             About Me
           </h2>
-          <p className="text-lg text-muted-foreground flex items-center justify-center gap-2">
+          <p className="text-base sm:text-lg text-muted-foreground flex items-center justify-center gap-2">
             ✨ Transforming ideas into digital experiences ✨
           </p>
         </div>
@@ -66,40 +66,40 @@ const AboutSection = () => {
               I craft experiences that make data accessible and engaging for diverse audiences.
             </p>
 
-            <div className="flex gap-4 pt-4">
-            <a 
-              href="/CV_Arya_Maulana_Putra.pdf" 
-              download
-              target="_blank"
-              className="px-6 py-3 bg-primary/20 border border-primary rounded-lg font-semibold 
-                               hover:bg-primary/30 transition-all duration-300 glow-purple flex items-center gap-2"
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/>
-              </svg>
-              Download CV
-            </a>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
+              <a 
+                href="/CV_Arya_Maulana_Putra.pdf" 
+                download
+                target="_blank"
+                className="px-4 sm:px-6 py-3 bg-primary/20 border border-primary rounded-lg font-semibold 
+                         hover:bg-primary/30 transition-all duration-300 glow-purple flex items-center justify-center gap-2 text-sm sm:text-base"
+              >
+                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/>
+                </svg>
+                Download CV
+              </a>
               <a 
                 href="https://github.com/YakkPut18"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 bg-secondary/20 border border-secondary rounded-lg font-semibold 
-                         hover:bg-secondary/30 transition-all duration-300 glow-blue flex items-center gap-2"
+                className="px-4 sm:px-6 py-3 bg-secondary/20 border border-secondary rounded-lg font-semibold 
+                         hover:bg-secondary/30 transition-all duration-300 glow-blue flex items-center justify-center gap-2 text-sm sm:text-base"
               >
-                <Code className="w-5 h-5" />
+                <Code className="w-4 h-4 sm:w-5 sm:h-5" />
                 View Projects
               </a>
             </div>
           </div>
 
           {/* Profile image */}
-          <div className="relative flex justify-center">
+          <div className="relative flex justify-center order-first md:order-last">
             <div className="relative">
               {/* Glow effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent rounded-full blur-2xl opacity-50 animate-glow"></div>
               
               {/* Image container */}
-              <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-primary/30 glow-purple">
+              <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/30 glow-purple">
                 <img 
                   src={aryaPhoto} 
                   alt="Arya Maulana Putra" 
