@@ -35,6 +35,7 @@ const TechStackSection = () => {
       icon: Code2, 
       label: "Programming", 
       count: "5 Tools",
+      onClick: () => setOpenDialog("programming")
     },
     { 
       icon: PaletteIcon, 
