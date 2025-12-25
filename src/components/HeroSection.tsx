@@ -22,7 +22,7 @@ const HeroSection = () => {
         </div>
 
         {/* Main heading */}
-        <h1 className="font-sans text-5xl md:text-7xl font-bold mb-2 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+        <h1 className="font-sans text-3xl sm:text-5xl md:text-7xl font-bold mb-2 animate-fade-in" style={{ animationDelay: '0.2s' }}>
           <span className="text-foreground">Welcome To My</span>
           <br />
           <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
@@ -41,17 +41,17 @@ const HeroSection = () => {
           </svg>
         </div>
         
-        <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
+        <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fade-in px-4" style={{ animationDelay: '0.6s' }}>
           <button
             onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-8 py-3 bg-primary/10 border border-primary/30 rounded-lg font-medium 
+            className="px-6 sm:px-8 py-3 bg-primary/10 border border-primary/30 rounded-lg font-medium text-sm sm:text-base
                      hover:bg-primary/20 hover:border-primary/50 transition-all duration-300"
           >
             Explore My Work
           </button>
           <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-8 py-3 bg-secondary/10 border border-secondary/30 rounded-lg font-medium 
+            className="px-6 sm:px-8 py-3 bg-secondary/10 border border-secondary/30 rounded-lg font-medium text-sm sm:text-base
                      hover:bg-secondary/20 hover:border-secondary/50 transition-all duration-300"
           >
             Get In Touch

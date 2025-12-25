@@ -39,16 +39,16 @@ const PortfolioSection = () => {
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
       
       <div className="relative z-10 container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold text-glow-purple mb-4">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-glow-purple mb-4">
             Portfolio
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base sm:text-lg text-muted-foreground">
             Discover my work across different domains
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
           {portfolioCategories.map((category, index) => (
             <div
               key={index}
@@ -59,17 +59,17 @@ const PortfolioSection = () => {
               <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} rounded-2xl blur-xl 
                             opacity-0 group-hover:opacity-50 transition-all duration-500`}></div>
               
-              <div className="relative bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 
+              <div className="relative bg-card/50 backdrop-blur-sm border border-border rounded-xl sm:rounded-2xl p-6 sm:p-8 
                             hover:border-primary/50 transition-all duration-300 h-full flex flex-col">
-                <div className="mb-6 inline-flex p-4 bg-primary/10 rounded-xl glow-purple">
-                  <category.icon className="w-8 h-8 text-primary" />
+                <div className="mb-4 sm:mb-6 inline-flex p-3 sm:p-4 bg-primary/10 rounded-xl glow-purple">
+                  <category.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
                 </div>
                 
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 group-hover:text-primary transition-colors">
                   {category.title}
                 </h3>
                 
-                <p className="text-muted-foreground mb-6 flex-grow">
+                <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 flex-grow">
                   {category.description}
                 </p>
                 

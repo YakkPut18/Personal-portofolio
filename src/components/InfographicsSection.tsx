@@ -33,16 +33,16 @@ const InfographicsSection = () => {
       <div className="absolute inset-0 grid-pattern opacity-20"></div>
       
       <div className="relative z-10 container mx-auto max-w-7xl">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold text-glow-purple mb-4">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-glow-purple mb-4">
             Infographics
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base sm:text-lg text-muted-foreground">
             Visual stories through data
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {infographics.map((infographic, index) => (
             <div
               key={infographic.id}
