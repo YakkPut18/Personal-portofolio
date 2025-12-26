@@ -6,42 +6,37 @@ const ContactSection = () => {
       icon: Github,
       label: "GitHub",
       href: "https://github.com/YakkPut18",
-      color: "hover:text-primary",
-      glow: "group-hover:glow-purple",
+      color: "bg-primary",
     },
     {
       icon: BookOpen,
       label: "Medium",
       href: "https://medium.com/@aryaputra1804",
-      color: "hover:text-secondary",
-      glow: "group-hover:glow-blue",
+      color: "bg-secondary",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/arya-maulana-putra-8a719626b",
-      color: "hover:text-accent",
-      glow: "group-hover:glow-cyan",
+      color: "bg-accent",
     },
     {
       icon: Instagram,
       label: "Instagram",
       href: "https://www.instagram.com/yakmaulana_",
-      color: "hover:text-primary",
-      glow: "group-hover:glow-purple",
+      color: "bg-primary",
     },
   ];
 
   return (
-    <section id="contact" className="relative py-20 px-6 overflow-hidden">
+    <section id="contact" className="relative py-20 px-6 overflow-hidden bg-background">
       {/* Background effects */}
-      <div className="absolute inset-0 grid-pattern opacity-20"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] 
-                    bg-gradient-to-r from-primary/20 via-secondary/20 to-accent/20 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] 
+                    bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 rounded-full blur-3xl"></div>
       
       <div className="relative z-10 container mx-auto max-w-4xl">
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-glow-purple mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary mb-4">
             Let's Connect
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground px-4">
@@ -59,21 +54,20 @@ const ContactSection = () => {
               className="group relative"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className={`absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl blur-lg 
-                            opacity-0 group-hover:opacity-100 transition-all duration-300 ${social.glow}`}></div>
-              
-              <div className="relative bg-card/50 backdrop-blur-sm border border-border rounded-xl sm:rounded-2xl p-4 sm:p-8 
-                            hover:border-primary/50 transition-all duration-300 flex flex-col items-center justify-center
+              <div className="relative bg-card border border-border rounded-xl sm:rounded-2xl p-4 sm:p-8 shadow-soft
+                            hover:shadow-medium hover:border-primary/30 transition-all duration-300 flex flex-col items-center justify-center
                             aspect-square group-hover:-translate-y-2">
-                <social.icon className={`w-8 h-8 sm:w-12 sm:h-12 mb-2 sm:mb-4 transition-colors ${social.color}`} />
-                <h4 className="font-semibold text-center text-xs sm:text-base">{social.label}</h4>
+                <div className={`p-3 ${social.color} rounded-full mb-2 sm:mb-4 shadow-soft`}>
+                  <social.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary-foreground" />
+                </div>
+                <h4 className="font-semibold text-center text-xs sm:text-base text-foreground">{social.label}</h4>
               </div>
             </a>
           ))}
         </div>
 
         {/* Email section */}
-        <div className="text-center bg-card/30 backdrop-blur-sm border border-border rounded-2xl p-4 sm:p-8">
+        <div className="text-center bg-card border border-border rounded-2xl p-4 sm:p-8 shadow-soft">
           <p className="text-muted-foreground mb-4 text-sm sm:text-base">Or send me an email at</p>
           <a
             href="mailto:aryaputra1804@student.uns.ac.id"
@@ -84,7 +78,7 @@ const ContactSection = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            <span className="text-glow-purple">aryaputra1804@student.uns.ac.id</span>
+            <span>aryaputra1804@student.uns.ac.id</span>
           </a>
         </div>
       </div>

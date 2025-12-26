@@ -21,13 +21,13 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border shadow-soft">
       <div className="container mx-auto px-4 md:px-6 py-4">
         <div className="flex items-center justify-between md:justify-end">
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors text-foreground"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
@@ -43,7 +43,7 @@ const Navigation = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-sm font-medium transition-colors hover:text-primary"
+                className="text-sm font-medium text-foreground transition-colors hover:text-primary"
               >
                 {item.label}
               </button>
@@ -62,7 +62,7 @@ const Navigation = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-left text-base font-medium py-2 px-3 rounded-lg transition-colors hover:bg-muted hover:text-primary"
+                  className="text-left text-base font-medium text-foreground py-2 px-3 rounded-lg transition-colors hover:bg-muted hover:text-primary"
                 >
                   {item.label}
                 </button>
