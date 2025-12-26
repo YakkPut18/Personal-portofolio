@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { X } from "lucide-react";
+import { X, ZoomIn } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import WaveDivider from "./WaveDivider";
 import infographic1 from "@/assets/infographic-1.png";
 import infographic2 from "@/assets/infographic-2.png";
 import infographic3 from "@/assets/infographic-3.png";
@@ -29,29 +30,34 @@ const InfographicsSection = () => {
   ];
 
   return (
-    <section id="infographics" className="relative py-20 px-6 overflow-hidden bg-muted/30">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"></div>
+    <section id="infographics" className="relative py-20 md:py-28 px-6 overflow-hidden bg-muted/30">
+      {/* Wave at top */}
+      <WaveDivider variant="top" color="hsl(var(--background))" />
       
-      <div className="relative z-10 container mx-auto max-w-7xl">
-        <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary mb-4">
-            Infographics
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"></div>
+      
+      <div className="relative z-10 container mx-auto max-w-7xl pt-8">
+        <div className="text-center mb-12 md:mb-16">
+          <span className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium mb-4">
+            Gallery
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+            My <span className="text-primary">Infographics</span>
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Visual stories through data
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {infographics.map((infographic, index) => (
             <div
               key={infographic.id}
               className="group relative aspect-[3/4] cursor-pointer"
-              style={{ animationDelay: `${index * 0.1}s` }}
               onClick={() => setSelectedInfographic(infographic)}
             >
-              <div className="relative h-full bg-card border border-border rounded-xl shadow-soft
+              <div className="relative h-full bg-card border border-border rounded-2xl shadow-soft
                             overflow-hidden hover:shadow-medium hover:border-primary/30 transition-all duration-300 
                             group-hover:-translate-y-2">
                 <img 
@@ -60,9 +66,12 @@ const InfographicsSection = () => {
                   className="w-full h-full object-cover"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent 
-                              opacity-0 group-hover:opacity-100 transition-opacity duration-300 
-                              flex items-end justify-center p-4">
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 
+                              flex flex-col items-center justify-center p-4">
+                  <div className="w-12 h-12 bg-primary-foreground rounded-full flex items-center justify-center mb-4">
+                    <ZoomIn className="w-6 h-6 text-primary" />
+                  </div>
                   <h3 className="text-sm font-semibold text-center line-clamp-3 text-primary-foreground">
                     {infographic.title}
                   </h3>
@@ -73,17 +82,20 @@ const InfographicsSection = () => {
         </div>
       </div>
 
+      {/* Wave divider */}
+      <WaveDivider color="hsl(var(--background))" />
+
       {/* Lightbox Modal */}
       <Dialog open={!!selectedInfographic} onOpenChange={() => setSelectedInfographic(null)}>
-        <DialogContent className="max-w-4xl w-[95vw] max-h-[95vh] p-0 bg-card border-border overflow-hidden shadow-medium">
+        <DialogContent className="max-w-4xl w-[95vw] max-h-[95vh] p-0 bg-card border-border overflow-hidden shadow-medium rounded-2xl">
           <DialogTitle className="sr-only">
             {selectedInfographic?.title}
           </DialogTitle>
           <button 
             onClick={() => setSelectedInfographic(null)}
-            className="absolute top-4 right-4 z-50 p-2 rounded-full bg-card hover:bg-muted transition-colors"
+            className="absolute top-4 right-4 z-50 p-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
           >
-            <X className="w-5 h-5 text-foreground" />
+            <X className="w-5 h-5" />
           </button>
           
           {selectedInfographic && (
