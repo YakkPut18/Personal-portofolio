@@ -27,15 +27,15 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="relative min-h-screen py-20 px-6 overflow-hidden">
+    <section id="about" className="relative min-h-screen py-20 px-6 overflow-hidden bg-background">
       {/* Background effects */}
-      <div className="absolute inset-0 grid-pattern opacity-30"></div>
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-neon-blue/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"></div>
       
       <div className="relative z-10 container mx-auto max-w-6xl">
         {/* Header */}
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-glow-purple mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary mb-4">
             About Me
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground flex items-center justify-center gap-2">
@@ -50,11 +50,11 @@ const AboutSection = () => {
             <div>
               <p className="text-lg text-muted-foreground mb-2">Hello, I'm</p>
               <h3 className="text-4xl md:text-5xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                <span className="text-primary">
                   Arya Maulana Putra
                 </span>
               </h3>
-              <p className="text-xl text-foreground/90 font-semibold mb-4">
+              <p className="text-xl text-foreground font-semibold mb-4">
                 Data Enthusiast & Visual Statistics Designer
               </p>
             </div>
@@ -71,8 +71,8 @@ const AboutSection = () => {
                 href="/CV_Arya_Maulana_Putra.pdf" 
                 download
                 target="_blank"
-                className="px-4 sm:px-6 py-3 bg-primary/20 border border-primary rounded-lg font-semibold 
-                         hover:bg-primary/30 transition-all duration-300 glow-purple flex items-center justify-center gap-2 text-sm sm:text-base"
+                className="px-4 sm:px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold 
+                         hover:bg-primary/90 transition-all duration-300 shadow-soft flex items-center justify-center gap-2 text-sm sm:text-base"
               >
                 <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/>
@@ -83,8 +83,8 @@ const AboutSection = () => {
                 href="https://github.com/YakkPut18"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 sm:px-6 py-3 bg-secondary/20 border border-secondary rounded-lg font-semibold 
-                         hover:bg-secondary/30 transition-all duration-300 glow-blue flex items-center justify-center gap-2 text-sm sm:text-base"
+                className="px-4 sm:px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-semibold 
+                         hover:bg-secondary/90 transition-all duration-300 shadow-soft flex items-center justify-center gap-2 text-sm sm:text-base"
               >
                 <Code className="w-4 h-4 sm:w-5 sm:h-5" />
                 View Projects
@@ -96,10 +96,10 @@ const AboutSection = () => {
           <div className="relative flex justify-center order-first md:order-last">
             <div className="relative">
               {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent rounded-full blur-2xl opacity-50 animate-glow"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent rounded-full blur-2xl opacity-30"></div>
               
               {/* Image container */}
-              <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/30 glow-purple">
+              <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/30 shadow-medium">
                 <img 
                   src={aryaPhoto} 
                   alt="Arya Maulana Putra" 
@@ -115,18 +115,18 @@ const AboutSection = () => {
           {stats.map((stat, index) => {
             const CardContent = (
               <>
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl blur-xl 
-                              group-hover:blur-2xl transition-all duration-300"></div>
-                <div className="relative bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 
-                              hover:border-primary/50 transition-all duration-300">
+                <div className="relative bg-card border border-border rounded-xl p-6 shadow-soft
+                              hover:shadow-medium hover:border-primary/30 transition-all duration-300">
                   <div className="flex items-start justify-between mb-4">
-                    <stat.icon className="w-10 h-10 text-primary" />
-                    <span className="text-4xl font-bold text-glow-purple">{stat.number}</span>
+                    <div className="p-3 bg-primary/10 rounded-xl">
+                      <stat.icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <span className="text-4xl font-bold text-primary">{stat.number}</span>
                   </div>
-                  <h4 className="text-sm font-semibold text-muted-foreground mb-2">
+                  <h4 className="text-sm font-semibold text-foreground mb-2">
                     {stat.label}
                   </h4>
-                  <p className="text-xs text-muted-foreground/80">{stat.description}</p>
+                  <p className="text-xs text-muted-foreground">{stat.description}</p>
                 </div>
               </>
             );

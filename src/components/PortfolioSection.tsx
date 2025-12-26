@@ -13,34 +13,34 @@ const PortfolioSection = () => {
       icon: FolderKanban,
       title: "Projects",
       description: "Explore my technical projects and web applications",
-      gradient: "from-primary to-primary/50",
+      color: "bg-primary",
       action: () => window.open("https://github.com/YakkPut18", "_blank"),
     },
     {
       icon: Image,
       title: "Infographics",
       description: "Data visualizations and information design",
-      gradient: "from-secondary to-secondary/50",
+      color: "bg-secondary",
       action: () => scrollToSection('infographics'),
     },
     {
       icon: Palette,
       title: "My Designs",
       description: "Creative design work and visual experiments",
-      gradient: "from-accent to-accent/50",
+      color: "bg-accent",
       action: () => window.open("https://drive.google.com/drive/folders/1DzM0HxbnmGV5_6P-3GYbveKrbbx_N5zD?usp=sharing", "_blank"),
     },
   ];
 
   return (
-    <section id="portfolio" className="relative py-20 px-6 overflow-hidden">
+    <section id="portfolio" className="relative py-20 px-6 overflow-hidden bg-muted/30">
       {/* Background effects */}
-      <div className="absolute inset-0 grid-pattern opacity-20"></div>
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"></div>
       
       <div className="relative z-10 container mx-auto max-w-6xl">
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-glow-purple mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary mb-4">
             Portfolio
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground">
@@ -56,16 +56,14 @@ const PortfolioSection = () => {
               style={{ animationDelay: `${index * 0.2}s` }}
               onClick={category.action}
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} rounded-2xl blur-xl 
-                            opacity-0 group-hover:opacity-50 transition-all duration-500`}></div>
-              
-              <div className="relative bg-card/50 backdrop-blur-sm border border-border rounded-xl sm:rounded-2xl p-6 sm:p-8 
-                            hover:border-primary/50 transition-all duration-300 h-full flex flex-col">
-                <div className="mb-4 sm:mb-6 inline-flex p-3 sm:p-4 bg-primary/10 rounded-xl glow-purple">
-                  <category.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
+              <div className="relative bg-card border border-border rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-soft
+                            hover:shadow-medium hover:border-primary/30 transition-all duration-300 h-full flex flex-col
+                            hover:-translate-y-2">
+                <div className={`mb-4 sm:mb-6 inline-flex p-3 sm:p-4 ${category.color} rounded-xl shadow-soft`}>
+                  <category.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary-foreground" />
                 </div>
                 
-                <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-foreground group-hover:text-primary transition-colors">
                   {category.title}
                 </h3>
                 

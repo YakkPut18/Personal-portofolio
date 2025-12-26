@@ -29,12 +29,13 @@ const InfographicsSection = () => {
   ];
 
   return (
-    <section id="infographics" className="relative py-20 px-6 overflow-hidden">
-      <div className="absolute inset-0 grid-pattern opacity-20"></div>
+    <section id="infographics" className="relative py-20 px-6 overflow-hidden bg-muted/30">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"></div>
       
       <div className="relative z-10 container mx-auto max-w-7xl">
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-glow-purple mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary mb-4">
             Infographics
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground">
@@ -50,11 +51,8 @@ const InfographicsSection = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
               onClick={() => setSelectedInfographic(infographic)}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl blur-lg 
-                            opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-              
-              <div className="relative h-full bg-card/50 backdrop-blur-sm border border-border rounded-xl 
-                            overflow-hidden hover:border-primary/50 transition-all duration-300 
+              <div className="relative h-full bg-card border border-border rounded-xl shadow-soft
+                            overflow-hidden hover:shadow-medium hover:border-primary/30 transition-all duration-300 
                             group-hover:-translate-y-2">
                 <img 
                   src={infographic.image} 
@@ -62,10 +60,10 @@ const InfographicsSection = () => {
                   className="w-full h-full object-cover"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent 
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent 
                               opacity-0 group-hover:opacity-100 transition-opacity duration-300 
                               flex items-end justify-center p-4">
-                  <h3 className="text-sm font-semibold text-center line-clamp-3">
+                  <h3 className="text-sm font-semibold text-center line-clamp-3 text-primary-foreground">
                     {infographic.title}
                   </h3>
                 </div>
@@ -77,15 +75,15 @@ const InfographicsSection = () => {
 
       {/* Lightbox Modal */}
       <Dialog open={!!selectedInfographic} onOpenChange={() => setSelectedInfographic(null)}>
-        <DialogContent className="max-w-4xl w-[95vw] max-h-[95vh] p-0 bg-background/95 backdrop-blur-md border-border overflow-hidden">
+        <DialogContent className="max-w-4xl w-[95vw] max-h-[95vh] p-0 bg-card border-border overflow-hidden shadow-medium">
           <DialogTitle className="sr-only">
             {selectedInfographic?.title}
           </DialogTitle>
           <button 
             onClick={() => setSelectedInfographic(null)}
-            className="absolute top-4 right-4 z-50 p-2 rounded-full bg-background/80 hover:bg-background transition-colors"
+            className="absolute top-4 right-4 z-50 p-2 rounded-full bg-card hover:bg-muted transition-colors"
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 h-5 text-foreground" />
           </button>
           
           {selectedInfographic && (
@@ -97,8 +95,8 @@ const InfographicsSection = () => {
                   className="w-full h-auto object-contain rounded-lg"
                 />
               </div>
-              <div className="p-4 border-t border-border bg-card/50">
-                <h3 className="text-lg md:text-xl font-semibold text-center">
+              <div className="p-4 border-t border-border bg-muted/50">
+                <h3 className="text-lg md:text-xl font-semibold text-center text-foreground">
                   {selectedInfographic.title}
                 </h3>
               </div>
