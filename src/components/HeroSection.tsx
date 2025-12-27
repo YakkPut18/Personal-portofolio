@@ -173,7 +173,7 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.2 }}
-        className="absolute bottom-32 left-1/2 -translate-x-1/2"
+        className="absolute bottom-48 md:bottom-52 left-1/2 -translate-x-1/2 z-20"
       >
         <motion.button 
           animate={{ y: [0, 8, 0] }}
