@@ -1,5 +1,6 @@
 import { FolderKanban, Image, Palette, ArrowRight } from "lucide-react";
 import WaveDivider from "./WaveDivider";
+import ScrollReveal from "./ScrollReveal";
 
 const PortfolioSection = () => {
   const scrollToSection = (id: string) => {
@@ -42,49 +43,52 @@ const PortfolioSection = () => {
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"></div>
       
-      <div className="relative z-10 container mx-auto max-w-6xl pt-8">
-        <div className="text-center mb-12 md:mb-16">
-          <span className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium mb-4">
-            My Work
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Explore My <span className="text-primary">Portfolio</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover my work across different domains
-          </p>
-        </div>
+      <div className="relative z-10 container mx-auto max-w-6xl pt-16">
+        <ScrollReveal direction="up">
+          <div className="text-center mb-12 md:mb-16">
+            <span className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium mb-4">
+              My Work
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Explore My <span className="text-primary">Portfolio</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Discover my work across different domains
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {portfolioCategories.map((category, index) => (
-            <div
-              key={index}
-              className="group cursor-pointer"
-              onClick={category.action}
-            >
-              <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-soft
-                            hover:shadow-medium hover:border-primary/30 transition-all duration-300
-                            hover:-translate-y-2 h-full flex flex-col items-center text-center">
-                {/* Icon circle */}
-                <div className={`w-20 h-20 ${category.color} rounded-full flex items-center justify-center mb-6 shadow-soft
-                              group-hover:scale-110 transition-transform duration-300`}>
-                  <category.icon className="w-9 h-9 text-primary-foreground" />
-                </div>
-                
-                <h3 className="text-xl md:text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
-                  {category.title}
-                </h3>
-                
-                <p className="text-muted-foreground mb-6 flex-grow">
-                  {category.description}
-                </p>
-                
-                <div className="flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all">
-                  <span>View Collection</span>
-                  <ArrowRight className="w-5 h-5" />
+            <ScrollReveal key={index} direction="up" delay={0.15 * index}>
+              <div
+                className="group cursor-pointer h-full"
+                onClick={category.action}
+              >
+                <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-soft
+                              hover:shadow-medium hover:border-primary/30 transition-all duration-300
+                              hover:-translate-y-2 h-full flex flex-col items-center text-center">
+                  {/* Icon circle */}
+                  <div className={`w-20 h-20 ${category.color} rounded-full flex items-center justify-center mb-6 shadow-soft
+                                group-hover:scale-110 transition-transform duration-300`}>
+                    <category.icon className="w-9 h-9 text-primary-foreground" />
+                  </div>
+                  
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
+                    {category.title}
+                  </h3>
+                  
+                  <p className="text-muted-foreground mb-6 flex-grow">
+                    {category.description}
+                  </p>
+                  
+                  <div className="flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all">
+                    <span>View Collection</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

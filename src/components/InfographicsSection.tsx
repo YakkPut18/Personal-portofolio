@@ -2,6 +2,7 @@ import { useState } from "react";
 import { X, ZoomIn } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import WaveDivider from "./WaveDivider";
+import ScrollReveal from "./ScrollReveal";
 import infographic1 from "@/assets/infographic-1.png";
 import infographic2 from "@/assets/infographic-2.png";
 import infographic3 from "@/assets/infographic-3.png";
@@ -37,47 +38,50 @@ const InfographicsSection = () => {
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"></div>
       
-      <div className="relative z-10 container mx-auto max-w-7xl pt-8">
-        <div className="text-center mb-12 md:mb-16">
-          <span className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium mb-4">
-            Gallery
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-            My <span className="text-primary">Infographics</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Visual stories through data
-          </p>
-        </div>
+      <div className="relative z-10 container mx-auto max-w-7xl pt-16">
+        <ScrollReveal direction="up">
+          <div className="text-center mb-12 md:mb-16">
+            <span className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium mb-4">
+              Gallery
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+              My <span className="text-primary">Infographics</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Visual stories through data
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {infographics.map((infographic, index) => (
-            <div
-              key={infographic.id}
-              className="group relative aspect-[3/4] cursor-pointer"
-              onClick={() => setSelectedInfographic(infographic)}
-            >
-              <div className="relative h-full bg-card border border-border rounded-2xl shadow-soft
-                            overflow-hidden hover:shadow-medium hover:border-primary/30 transition-all duration-300 
-                            group-hover:-translate-y-2">
-                <img 
-                  src={infographic.image} 
-                  alt={infographic.title}
-                  className="w-full h-full object-cover"
-                />
+            <ScrollReveal key={infographic.id} direction="up" delay={0.1 * (index % 4)}>
+              <div
+                className="group relative aspect-[3/4] cursor-pointer"
+                onClick={() => setSelectedInfographic(infographic)}
+              >
+                <div className="relative h-full bg-card border border-border rounded-2xl shadow-soft
+                              overflow-hidden hover:shadow-medium hover:border-primary/30 transition-all duration-300 
+                              group-hover:-translate-y-2">
+                  <img 
+                    src={infographic.image} 
+                    alt={infographic.title}
+                    className="w-full h-full object-cover"
+                  />
 
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 
-                              flex flex-col items-center justify-center p-4">
-                  <div className="w-12 h-12 bg-primary-foreground rounded-full flex items-center justify-center mb-4">
-                    <ZoomIn className="w-6 h-6 text-primary" />
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 
+                                flex flex-col items-center justify-center p-4">
+                    <div className="w-12 h-12 bg-primary-foreground rounded-full flex items-center justify-center mb-4">
+                      <ZoomIn className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-sm font-semibold text-center line-clamp-3 text-primary-foreground">
+                      {infographic.title}
+                    </h3>
                   </div>
-                  <h3 className="text-sm font-semibold text-center line-clamp-3 text-primary-foreground">
-                    {infographic.title}
-                  </h3>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

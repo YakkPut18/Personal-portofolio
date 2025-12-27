@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Code2, Palette as PaletteIcon, X } from "lucide-react";
+import { Code2, Palette as PaletteIcon } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import ScrollReveal from "./ScrollReveal";
 
 import pythonLogo from "@/assets/python-logo.png";
 import rstudioLogo from "@/assets/rstudio-logo.png";
@@ -56,36 +57,39 @@ const TechStackSection = () => {
       <div className="absolute top-0 left-1/4 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"></div>
       
       <div className="relative z-10 container mx-auto max-w-6xl">
-        <div className="text-center mb-12 md:mb-16">
-          <span className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium mb-4">
-            Technologies
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-            My <span className="text-primary">Tech Stack</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Tools and technologies I work with
-          </p>
-        </div>
+        <ScrollReveal direction="up">
+          <div className="text-center mb-12 md:mb-16">
+            <span className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium mb-4">
+              Technologies
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+              My <span className="text-primary">Tech Stack</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Tools and technologies I work with
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Tech categories */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-3xl mx-auto">
           {categories.map((category, index) => (
-            <div
-              key={index}
-              onClick={category.onClick}
-              className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-soft
-                       hover:shadow-medium hover:border-primary/30 transition-all duration-300 cursor-pointer
-                       hover:-translate-y-2 group flex flex-col items-center text-center"
-            >
-              <div className={`w-20 h-20 ${category.color} rounded-full flex items-center justify-center mb-6 shadow-soft
-                            group-hover:scale-110 transition-transform duration-300`}>
-                <category.icon className="w-9 h-9 text-primary-foreground" />
+            <ScrollReveal key={index} direction={index === 0 ? "left" : "right"} delay={0.1 * index}>
+              <div
+                onClick={category.onClick}
+                className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-soft
+                         hover:shadow-medium hover:border-primary/30 transition-all duration-300 cursor-pointer
+                         hover:-translate-y-2 group flex flex-col items-center text-center"
+              >
+                <div className={`w-20 h-20 ${category.color} rounded-full flex items-center justify-center mb-6 shadow-soft
+                              group-hover:scale-110 transition-transform duration-300`}>
+                  <category.icon className="w-9 h-9 text-primary-foreground" />
+                </div>
+                <h4 className="font-bold text-xl md:text-2xl mb-2 text-foreground">{category.label}</h4>
+                <p className="text-muted-foreground mb-2">{category.description}</p>
+                <span className="text-sm font-semibold text-primary">{category.count}</span>
               </div>
-              <h4 className="font-bold text-xl md:text-2xl mb-2 text-foreground">{category.label}</h4>
-              <p className="text-muted-foreground mb-2">{category.description}</p>
-              <span className="text-sm font-semibold text-primary">{category.count}</span>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
