@@ -97,7 +97,7 @@ const AboutSection = () => {
             <div className="bg-gradient-hero rounded-2xl p-6 md:p-8 text-primary-foreground h-full">
               <h3 className="text-xl font-bold mb-6">Core Skills</h3>
               <div className="space-y-4">
-                {['Data Analysis', 'Statistical Visualization', 'Information Design', 'Python Programming', 'UI/UX Design'].map((skill, index) => (
+                {['Data Analysis', 'Statistical Visualization', 'Infographic Design', 'Python Programming', 'UI/UX Design'].map((skill, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-secondary rounded-full"></div>
                     <span className="text-sm font-medium">{skill}</span>
