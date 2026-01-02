@@ -14,7 +14,7 @@ const AboutSection = () => {
     },
     {
       icon: Award,
-      number: "7",
+      number: "9",
       label: "Certificates",
       description: "Professional skills validated",
       link: "https://drive.google.com/drive/folders/1LydvnZ8sGu1oVQu0NTat_buwHFd4Sik6?usp=sharing",
@@ -22,7 +22,7 @@ const AboutSection = () => {
     },
     {
       icon: Globe,
-      number: "3",
+      number: "2",
       label: "Years Experience",
       description: "Continuous learning journey",
       link: null,
