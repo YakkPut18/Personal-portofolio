@@ -36,16 +36,7 @@ const Navigation = () => {
         : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-4 md:px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <button 
-            onClick={() => scrollToSection('hero')}
-            className={`font-bold text-lg transition-colors ${
-              isScrolled ? 'text-primary' : 'text-primary-foreground'
-            }`}
-          >
-            AMP
-          </button>
+        <div className="flex items-center justify-end">
 
           {/* Mobile menu button */}
           <button
