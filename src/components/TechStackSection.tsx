@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { Code2, Palette as PaletteIcon } from "lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import ScrollReveal from "./ScrollReveal";
 
 import pythonLogo from "@/assets/python-logo.png";
@@ -14,8 +11,6 @@ import figmaLogo from "@/assets/figma-logo-new.png";
 import photoshopLogo from "@/assets/photoshop-logo.png";
 
 const TechStackSection = () => {
-  const [openDialog, setOpenDialog] = useState<"programming" | "design" | null>(null);
-
   const programmingTools = [
     { name: "Python", logo: pythonLogo },
     { name: "R Studio", logo: rstudioLogo },
@@ -25,29 +20,10 @@ const TechStackSection = () => {
   ];
 
   const designTools = [
-    { name: "Adobe Illustrator", logo: illustratorLogo },
+    { name: "Illustrator", logo: illustratorLogo },
     { name: "Canva", logo: canvaLogo },
     { name: "Figma", logo: figmaLogo },
-    { name: "Adobe Photoshop", logo: photoshopLogo },
-  ];
-
-  const categories = [
-    { 
-      icon: Code2, 
-      label: "Programming", 
-      count: "5 Tools",
-      description: "Data analysis & development",
-      color: "bg-primary",
-      onClick: () => setOpenDialog("programming")
-    },
-    { 
-      icon: PaletteIcon, 
-      label: "Design", 
-      count: "4 Tools",
-      description: "Visual & graphic design",
-      color: "bg-secondary",
-      onClick: () => setOpenDialog("design")
-    },
+    { name: "Photoshop", logo: photoshopLogo },
   ];
 
   return (
@@ -60,77 +36,58 @@ const TechStackSection = () => {
         <ScrollReveal direction="up">
           <div className="text-center mb-12 md:mb-16">
             <span className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium mb-4">
-              Technologies
+              My Favorite Tools
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-              My <span className="text-primary">Tech Stack</span>
+              <span className="text-primary italic">Exploring the Tools</span>
+              <br />
+              Behind My Designs
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Tools and technologies I work with
-            </p>
           </div>
         </ScrollReveal>
 
-        {/* Tech categories */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-3xl mx-auto">
-          {categories.map((category, index) => (
-            <ScrollReveal key={index} direction={index === 0 ? "left" : "right"} delay={0.1 * index}>
-              <div
-                onClick={category.onClick}
-                className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-soft
-                         hover:shadow-medium hover:border-primary/30 transition-all duration-300 cursor-pointer
-                         hover:-translate-y-2 group flex flex-col items-center text-center"
-              >
-                <div className={`w-20 h-20 ${category.color} rounded-full flex items-center justify-center mb-6 shadow-soft
-                              group-hover:scale-110 transition-transform duration-300`}>
-                  <category.icon className="w-9 h-9 text-primary-foreground" />
+        {/* Programming Tools */}
+        <ScrollReveal direction="up" delay={0.1}>
+          <div className="mb-12">
+            <h3 className="text-center text-lg font-semibold text-muted-foreground mb-6">Programming</h3>
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+              {programmingTools.map((tool, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-3 bg-card border border-border rounded-full px-5 py-3 shadow-soft
+                           hover:shadow-medium hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
+                    <img src={tool.logo} alt={tool.name} className="w-7 h-7 object-contain" />
+                  </div>
+                  <span className="font-medium text-foreground text-sm">{tool.name}</span>
                 </div>
-                <h4 className="font-bold text-xl md:text-2xl mb-2 text-foreground">{category.label}</h4>
-                <p className="text-muted-foreground mb-2">{category.description}</p>
-                <span className="text-sm font-semibold text-primary">{category.count}</span>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* Design Tools */}
+        <ScrollReveal direction="up" delay={0.2}>
+          <div>
+            <h3 className="text-center text-lg font-semibold text-muted-foreground mb-6">Design</h3>
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+              {designTools.map((tool, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-3 bg-card border border-border rounded-full px-5 py-3 shadow-soft
+                           hover:shadow-medium hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
+                    <img src={tool.logo} alt={tool.name} className="w-7 h-7 object-contain" />
+                  </div>
+                  <span className="font-medium text-foreground text-sm">{tool.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
-
-      {/* Programming Dialog */}
-      <Dialog open={openDialog === "programming"} onOpenChange={() => setOpenDialog(null)}>
-        <DialogContent className="bg-card border-border max-w-[90vw] sm:max-w-md shadow-medium rounded-2xl">
-          <DialogHeader>
-            <DialogTitle className="text-xl sm:text-2xl font-bold text-center mb-4 text-foreground">Programming Tools</DialogTitle>
-          </DialogHeader>
-          <div className="grid grid-cols-3 gap-4">
-            {programmingTools.map((tool, index) => (
-              <div key={index} className="flex flex-col items-center gap-3 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-card shadow-soft flex items-center justify-center p-2">
-                  <img src={tool.logo} alt={tool.name} className="w-10 h-10 sm:w-12 sm:h-12 object-contain" />
-                </div>
-                <span className="font-medium text-xs sm:text-sm text-center text-foreground">{tool.name}</span>
-              </div>
-            ))}
-          </div>
-        </DialogContent>
-      </Dialog>
-
-      {/* Design Dialog */}
-      <Dialog open={openDialog === "design"} onOpenChange={() => setOpenDialog(null)}>
-        <DialogContent className="bg-card border-border max-w-[90vw] sm:max-w-md shadow-medium rounded-2xl">
-          <DialogHeader>
-            <DialogTitle className="text-xl sm:text-2xl font-bold text-center mb-4 text-foreground">Design Tools</DialogTitle>
-          </DialogHeader>
-          <div className="grid grid-cols-2 gap-4">
-            {designTools.map((tool, index) => (
-              <div key={index} className="flex flex-col items-center gap-3 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-card shadow-soft flex items-center justify-center p-2">
-                  <img src={tool.logo} alt={tool.name} className="w-10 h-10 sm:w-12 sm:h-12 object-contain" />
-                </div>
-                <span className="font-medium text-xs sm:text-sm text-center text-foreground">{tool.name}</span>
-              </div>
-            ))}
-          </div>
-        </DialogContent>
-      </Dialog>
     </section>
   );
 };
