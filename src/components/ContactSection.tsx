@@ -18,7 +18,7 @@ const ContactSection = () => {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/arya-maulana-putra-8a719626b",
+      href: "https://www.linkedin.com/in/arya-maulana-p",
       color: "bg-accent",
     },
     {
