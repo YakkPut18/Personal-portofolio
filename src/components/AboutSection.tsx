@@ -14,7 +14,7 @@ const AboutSection = () => {
     },
     {
       icon: Award,
-      number: "9",
+      number: "10",
       label: "Certificates",
       description: "Professional skills validated",
       link: "https://drive.google.com/drive/folders/1LydvnZ8sGu1oVQu0NTat_buwHFd4Sik6?usp=sharing",
