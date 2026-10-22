@@ -4,6 +4,12 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import WaveDivider from "./WaveDivider";
 import ScrollReveal from "./ScrollReveal";
 import certificateIBCC from "@/assets/certificate-ibcc.png";
+import certificateIMC from "@/assets/certificate-imc.png.asset.json";
+import certificateSSF from "@/assets/certificate-ssf.png.asset.json";
+import certificateSDC from "@/assets/certificate-sdc.png.asset.json";
+import certificateDataLoka from "@/assets/certificate-dataloka.jpg.asset.json";
+import certificateEPIC from "@/assets/certificate-epic.jpg.asset.json";
+import certificateANAVA from "@/assets/certificate-anava.jpg.asset.json";
 
 const CertificatesSection = () => {
   const [selectedCertificate, setSelectedCertificate] = useState<{
@@ -14,6 +20,12 @@ const CertificatesSection = () => {
 
   const certificates = [
     { id: 1, title: "Semifinal IBCC ITB 2026", image: certificateIBCC },
+    { id: 2, title: "Juara 1 Infografis IMC IPB", image: certificateIMC.url },
+    { id: 3, title: "Juara 2 SSIC SSF 2025", image: certificateSSF.url },
+    { id: 4, title: "Top 10 SDC by Pojok Statistik 2024", image: certificateSDC.url },
+    { id: 5, title: "Presenter Data Loka 2026", image: certificateDataLoka.url },
+    { id: 6, title: "Juara 3 Essay Ilmiah EPIC UNEJ 2025", image: certificateEPIC.url },
+    { id: 7, title: "Juara 3 Infografis ANAVA #19 UGM 2025", image: certificateANAVA.url },
   ];
 
   return (
